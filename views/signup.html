@@ -1,7 +1,7 @@
 <div class="row" ng-controller="moduleController">
     <div class="col-sm-6 forms">
         <div class="page-header">
-            <h4>Add Module<a href ng-click="showModuleForm = !showModuleForm"> Show / Hide Form</a></h4>
+            <h4>Add Module<a href ng-click="showModuleForm = !showModuleForm"> Show/Hide</a></h4>
         </div>
         <form ng-show="showModuleForm">
             <div class="form-group">
@@ -19,7 +19,7 @@
             </p>
         </form>
         <div class="page-header">
-            <h4>Sign-Up<a href ng-click="showSignUpForm = !showSignUpForm"> Show / Hide Form</a></h4>
+            <h4>Sign-Up<a href ng-click="showSignUpForm = !showSignUpForm"> Show/Hide</a></h4>
         </div>
         <form ng-show="showSignUpForm">
             <div class="form-group">
@@ -37,8 +37,7 @@
             <div class="form-group">
                 <label>Module</label>
                 <select class="form-control" ng-model="selectedmodule" ng-options="module.name for module in modules">
-          <!-- <option>You need to modify this</option> -->
-        </select>
+                </select>
             </div>
             <p><a class="btn btn-primary btn-large" href="#/signup" ng-click="addMember()">SIGN-UP</a>
             </p>
@@ -52,24 +51,24 @@
         <div class="panel panel-primary" ng-repeat="module in modules | orderBy:'name'">
             <div class="panel-heading">
                 <h4 class="panel-title">
-          <a  href="#">{{module.name}}</a>
+          <a href="#">{{module.name}}</a>
         </h4>
             </div>
             <div class="panel-body">
-                <p class="text-center">No students have signed up for this module.</p>
-                <table class="table table-bordered table-hover table-striped">
+                <p class="text-center" ng-hide="module.members.length > 0">No students have signed up for this module.</p>
+                <table class="table table-bordered table-hover table-striped" ng-show="module.members.length > 0">
                     <tr>
                         <th>First</th>
                         <th>Last</th>
                         <th>E-mail</th>
                         <th></th>
                     </tr>
-                    <tr ng-repeat="member in members" ng-if="member.memberOf.name === module.name">
+                    <tr ng-repeat="member in module.members">
                         <td>{{member.firstname}}</td>
                         <td>{{member.lastname}}</td>
                         <td>{{member.emailaddress}}</td>
                         <td class="text-center">
-                            <button class="btn btn-warning btn-sm" ng-click="removeMember(member)">
+                            <button class="btn btn-warning btn-sm" ng-click="removeMember(module,member)">
                 <span class="glyphicon glyphicon-trash"></span>
               </button>
                         </td>
