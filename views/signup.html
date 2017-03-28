@@ -51,7 +51,7 @@
     <div class="panel panel-primary" ng-repeat="module in modules | orderBy:'name'">
       <div class="panel-heading">
         <h4 class="panel-title">
-          <a href="#">{{module.name}}</a>
+          <a ng-href="https://www.npmjs.com/package/{{module.website}}">{{module.name}}</a>
         </h4>
       </div>
       <div class="panel-body">
