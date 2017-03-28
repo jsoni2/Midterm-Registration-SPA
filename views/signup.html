@@ -36,7 +36,7 @@
       </div>
       <div class="form-group">
         <label>Module</label>
-        <select class="form-control" ng-model="selectedmodule" ng-options="module.name for module in modules">
+        <select class="form-control" ng-model="selectedmodule" ng-options="module.name for module in modules | orderBy:'name'">
         </select>
       </div>
       <p><a class="btn btn-primary btn-large" href="#/signup" ng-click="addMember()">SIGN-UP</a>
