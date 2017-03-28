@@ -1,7 +1,7 @@
 <div class="row" ng-controller="moduleController">
   <div class="col-sm-6 forms">
     <div class="page-header">
-      <h4>Add Module<a href ng-click="showModuleForm = !showModuleForm"> Show/Hide</a></h4>
+      <h4>Add Module<a href ng-show="showModuleForm" ng-click="showModuleForm = !showModuleForm"> Hide Form</a><a href ng-show="!showModuleForm" ng-click="showModuleForm = !showModuleForm"> Show Form</a></h4>
     </div>
     <form ng-show="showModuleForm">
       <div class="form-group">
@@ -19,7 +19,7 @@
       </p>
     </form>
     <div class="page-header">
-      <h4>Sign-Up<a href ng-click="showSignUpForm = !showSignUpForm"> Show/Hide</a></h4>
+      <h4>Sign-Up<a href ng-show="showSignUpForm" ng-click="showSignUpForm = !showSignUpForm"> Hide Form</a><a href ng-show="!showSignUpForm" ng-click="showSignUpForm = !showSignUpForm"> Show Form</a></h4>
     </div>
     <form ng-show="showSignUpForm">
       <div class="form-group">
